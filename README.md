@@ -4,7 +4,7 @@
 	进入要参与项目的地址：https://github.com/xudabin/test.git，点击Fork,先fork这个项目到自己的项目中。
 
 ##2.clone项目到本地
-	2.1 把fork过来的项目clone到本地 <br/>
+	2.1 把fork过来的项目clone到本地
 		git clone https://github.com/hujewelz/test.git
 		
 	2.2 可以新建并切换到开发(dev)分支
