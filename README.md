@@ -13,7 +13,7 @@
 在项目的开始到结束，我们会有两种仓库。一种是源仓库（origin），一种是开发者仓库。上图中的每个矩形都表示一个仓库，正中间的是我们的源仓库，而其他围绕着源仓库的则是开发者仓库。
 
 ###源仓库
-在项目的开始，项目的发起者构建起一个项目的最原始的仓库，我们把它称为origin。源仓库的有两个作用：
+在项目的开始，项目的发起者构建起一个项目的最原始的仓库，我们把它称为`origin`。源仓库的有两个作用：
 
 * 汇总参与该项目的各个开发者的代码
 * 存放趋于稳定和可发布的代码
@@ -78,7 +78,7 @@ step 3: 在功能性分支上进行开发工作，多次commit，测试以后...
 
 step 4: 把做好的功能合并到`develop`中 
 
-	>> git checkout develop <br/>
+	>> git checkout develop 
 	# 回到develop分支
 	
 	>> git merge --no-ff feature-discuss 
@@ -106,7 +106,7 @@ step 4: 把做好的功能合并到`develop`中
 	进入要参与项目的地址：https://github.com/xudabin/test.git，点击Fork,先fork这个项目到自己的项目中。
 
 ###2.clone项目到本地
-	2.1 把fork过来的项目clone到本地 <br/>
+	2.1 把fork过来的项目clone到本地 
 		git clone https://github.com/hujewelz/test.git
 		
 	2.2 可以新建并切换到开发(dev)分支
