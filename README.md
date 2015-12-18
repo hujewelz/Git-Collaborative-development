@@ -134,5 +134,5 @@ step 4: 把做好的功能合并到`develop`中
 
 
 
-###感谢[戴嘉华](http://segmentfault.com/a/1190000002413519)
+####感谢[戴嘉华](http://segmentfault.com/a/1190000002413519)
 
