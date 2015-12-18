@@ -2,10 +2,9 @@
 ##前言
  很多项目开发都会采用git这一优秀的分布式版本管理工具进行项目版本管理，使用github开源平台作为代码仓库托管平台。由于git的使用非常灵活，在实践当中衍生了很多种不同的工作流程，不同的项目、不同的团队会有不同的协作方式。
 
-<<<<<<< HEAD
 本文将介绍一种前人已经在各种大小项目中经过千锤百炼总结出来的一种比较成功的git工作流，这种工作流已经被成功用于许多团队开发当中。掌握git，掌握这种工作流，对大家以后的学习、开发工作大有好处。先来开一张图：<br/>
 
-![image](https://github.com/hujewelz/Git-Collaborative-development.git/master/raw/image/1.png)
+![image](https://github.com/hujewelz/Git-Collaborative-development/blob/master/iamge/1.png)
 
 上面一张图展示了一种使用git进行项目协同开发的模式，接下来会进行详细介绍。	
 
@@ -42,23 +41,6 @@
  	* `feature branch`：功能分支
 	* `release branch`：预发布分支
 	* `hotfix branch`：bug修复分支
-=======
-##1.Fork项目
-	进入要参与项目的地址：https://github.com/xudabin/test.git，点击Fork,先fork这个项目到自己的项目中。
-
-##2.clone项目到本地
-	2.1 把fork过来的项目clone到本地
-		git clone https://github.com/hujewelz/test.git
-		
-	2.2 可以新建并切换到开发(dev)分支
-		git checkout -b dev
-	然后可以在该分支下做开发。
-##3. Pull request
-	当实现了一个功能，就可以开始提交这个commit了。
-	eg: git add test.md
-		git commit -m 'add test.md'
-		git push -u origin dev
->>>>>>> b3d4944c6480752520f6c6512a638e71da9ddea3
 	
 ####永久性分支
 
@@ -70,7 +52,7 @@
 
 所有开发者开发好的功能会在源仓库的`develop`分支中进行汇总，当`develop`中的代码经过不断的测试，已经逐渐趋于稳定了，接近产品目标了。这时候，我们就可以把`develop`分支合并到`master`分支中，发布一个新版本。所以，一个产品不断完善和发布过程就正如下图：<br/>
 
-![image](https://github.com/hujewelz/Git-Collaborative-development.git/master/raw/image/2.png) <br/>
+![image](https://github.com/hujewelz/Git-Collaborative-development/blob/master/iamge/2.png) <br/>
 
 注意，任何人不应该向`master`直接进行无意义的合并、提交操作。正常情况下，`master`只应该接受`develop`的合并，也就是说，`master`所有代码更新应该源于合并`develop`的代码。
 
@@ -80,7 +62,7 @@
 
 **feature**：功能性分支，是用于开发项目的功能的分支，是开发者主要战斗阵地。开发者在本地仓库从`develop`分支分出功能分支，在该分支上进行功能的开发，开发完成以后再合并到`develop`分支上，这时候功能性分支已经完成任务，可以删除。功能性分支的命名一般为`feature-*`，*为需要开发的功能的名称。 <br/>
 
-![image](https://github.com/hujewelz/Git-Collaborative-development.git/master/raw/image/2.png) <br/>
+![image](https://github.com/hujewelz/Git-Collaborative-development/blob/master/iamge/3.png) <br/>
 
 假设我参与了一个项目的开发，已经把源仓库fork了，并且clone到了本地。现在要开发“讨论”功能。我在本地仓库中可以这样做：
 
@@ -108,7 +90,6 @@ step 4: 把做好的功能合并到`develop`中
 	>> git push origin develop 
 	# 把develop提交到自己的远程仓库中
 	
-<<<<<<< HEAD
 这样，就完成一次功能的开发和提交。
 
 **release**：预发布分支，当产品即将发布的时候，要进行最后的调整和测试，这时候就可以分出一个预发布分支，进行最后的bug fix。测试完全以后，发布新版本，就可以把预发布分支删除。预发布分支一般命名为`release-*`。
@@ -121,7 +102,37 @@ step 4: 把做好的功能合并到`develop`中
 
 啰嗦讲了这么多，那么怎样进行协同开发呢？<br/>
 
-###感谢[戴嘉华](http://segmentfault.com/a/1190000002413519)
-=======
+###1.Fork项目
+	进入要参与项目的地址：https://github.com/xudabin/test.git，点击Fork,先fork这个项目到自己的项目中。
+
+###2.clone项目到本地
+	2.1 把fork过来的项目clone到本地 <br/>
+		git clone https://github.com/hujewelz/test.git
+		
+	2.2 可以新建并切换到开发(dev)分支
+		git checkout -b dev
+	然后可以在该分支下做开发。
+###3. Pull request
+	当实现了一个功能，就可以开始提交这个commit了。
+	eg: git add test.md
+		git commit -m 'add test.md'
+		git push -u origin dev
 	
->>>>>>> b3d4944c6480752520f6c6512a638e71da9ddea3
+	这时候，你进入github网站，进入compare & pull request，填写一些信息crete pull request即可。当项目发起者看到这个pull request时，就会合并到他的项目中了。
+
+###4. 建立与主项目服务器的连接
+	4.1 当主项目有更新了怎么办？那么，这个时候我们就需要将主项目的更新合并到本地。 
+	git remote add upstream https://github.com/xudabin/test.git
+	
+	4.2 将更新合并到本地
+	    git fetch upstream 
+		git merge upstream/master
+	或
+		git pull upstream master:dev
+	将远程仓库的master分支的更新合并到本地的dev分支（合并到哪个分支自己决定，不一定非得是dev分支哦，个人习惯而已）
+	这个时候就将主项目的更新合并到本地了。然后就可以继续开发新功能了。
+
+
+
+###感谢[戴嘉华](http://segmentfault.com/a/1190000002413519)
+
